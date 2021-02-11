@@ -1,5 +1,6 @@
 package com.easv.oe.friends.Model
 
+
 class Friends {
 
     val mFriends = arrayOf<BEFriend>(
@@ -12,12 +13,11 @@ class Friends {
                          BEFriend("Rocio", "12121212", true)
     )
 
-    fun getAll(): Array<BEFriend> { return mFriends; }
+    fun getAll(): Array<BEFriend> = mFriends
 
 
-    fun getAllNames(): Array<String> {
-        var res = mutableListOf<String>()
-        mFriends.forEach { f -> res.add(f.name) }
-        return res.toTypedArray()
-    }
+    fun getAllNames(): Array<String>  =  mFriends.map { p -> p.name }.toTypedArray()
+
+
+
 }
