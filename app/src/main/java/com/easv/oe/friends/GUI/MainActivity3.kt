@@ -7,9 +7,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import com.easv.oe.friends.Model.BEFriend
 import com.easv.oe.friends.Model.Friends
 import com.easv.oe.friends.R
@@ -19,6 +17,21 @@ class MainActivity3 : ListActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         listAdapter = FriendAdapter(this, Friends().getAll())
+    }
+
+    override fun onListItemClick(
+            parent: ListView?,
+            v: View?, position: Int, id: Long
+    ) {
+        // position is in the list!
+        // first get the name of the person clicked
+        val name = Friends().getAll()[position].name
+        // and a greeting
+        Toast.makeText(
+                this,
+                "Hi $name! Have you done your homework?",
+                Toast.LENGTH_LONG
+        ).show()
     }
 
     internal class FriendAdapter( context: Context,
