@@ -15,13 +15,18 @@ class MainActivity : ListActivity() {
         super.onCreate(savedInstanceState)
         // NO setContent because it is only a Listview
 
+        val friends = Friends()
+
+        val friendNames = friends.getAllNames()
+
         val adapter: ListAdapter = ArrayAdapter(
             this,
-            android.R.layout.simple_list_item_1, Friends().getAllNames()
+            android.R.layout.simple_list_item_1, friendNames
         )
 
         listAdapter = adapter
     }
+
 
     override fun onListItemClick( parent: ListView?,
         v: View?, position: Int, id: Long) {

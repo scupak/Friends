@@ -12,27 +12,24 @@ import com.easv.oe.friends.R
 class MainActivity2 : ListActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // NO setContent because it is only a Listview
 
-        listAdapter = createAdapter()
+        listAdapter = SimpleAdapter(
+                           this,
+                                    asListMap(Friends().getAll()),
+                                    R.layout.cell,
+                                    arrayOf("name", "phone"),
+                                    intArrayOf(R.id.name, R.id.phone)
+                                   )
     }
 
-    private fun asListMap(src: Array<BEFriend>): List<Map<String, String?>>? {
-        /*val res: MutableList<Map<String, String?>> = ArrayList()
-        for (s in src) {
-            res.add( hashMapOf("name" to s.name, "phone" to s.phone) )
-        }
-        return res */
+    /* Input: an array of friend objects
+       Return: a list of hashmaps, where each hashmap represent a friend object from input
+     */
+    private fun asListMap(src: Array<BEFriend>): List<Map<String, String?>> {
+
         return src.map{ person -> hashMapOf("name" to person.name, "phone" to person.phone) }
     }
 
-    protected fun createAdapter(): SimpleAdapter? {
-        return SimpleAdapter(
-                this,
-                asListMap(Friends().getAll()),
-                R.layout.cell, arrayOf("name", "phone"), intArrayOf(R.id.name, R.id.phone)
-        )
-    }
 
     override fun onListItemClick(
             parent: ListView?,

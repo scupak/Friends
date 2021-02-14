@@ -19,10 +19,8 @@ class MainActivity3 : ListActivity() {
         listAdapter = FriendAdapter(this, Friends().getAll())
     }
 
-    override fun onListItemClick(
-            parent: ListView?,
-            v: View?, position: Int, id: Long
-    ) {
+    override fun onListItemClick(parent: ListView?,
+            v: View?, position: Int, id: Long) {
         // position is in the list!
         // first get the name of the person clicked
         val name = Friends().getAll()[position].name
