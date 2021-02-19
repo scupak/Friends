@@ -10,13 +10,20 @@ class Friends {
                          BEFriend("Nadia", "12345678", true),
                          BEFriend("Michael", "23456789", true),
                          BEFriend("Kacper", "87654321", false),
-                         BEFriend("Rocio", "12121212", true)
+                         BEFriend("Rocio", "12121212", true),
+                         BEFriend("Alan", "12876543", false),
+                         BEFriend("Rado", "14755432", true),
+                         BEFriend("Cecilia", "21212121", true),
+                         BEFriend("Alan", "12876543", false),
+                         BEFriend("Christina", "12344321", false),
+                         BEFriend("Anne", "12876543", false),
+                         BEFriend("Kim", "12876543", true)
     )
 
     fun getAll(): Array<BEFriend> = mFriends
 
 
-    fun getAllNames(): Array<String>  =  mFriends.map { p -> p.name }.toTypedArray()
+    fun getAllNames(): Array<String>  =  mFriends.map { aFriend -> aFriend.name }.toTypedArray()
 
 
 
