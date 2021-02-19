@@ -1,20 +1,22 @@
 package com.easv.oe.friends.GUI
 
+import android.app.Activity
 import android.app.ListActivity
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.ListAdapter
-import android.widget.ListView
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.easv.oe.friends.Model.Friends
+import com.easv.oe.friends.R
+import kotlinx.android.synthetic.main.activity_main.*
 
 
-class MainActivity : ListActivity() {
+
+class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // NO setContent because it is only a Listview
+        setContentView(R.layout.activity_main)
 
         val friends = Friends()
 
@@ -25,12 +27,13 @@ class MainActivity : ListActivity() {
             android.R.layout.simple_list_item_1, friendNames
         )
 
-        listAdapter = adapter
+        friendList.adapter = adapter
+
+        friendList.setOnItemClickListener { _, _, position, _ -> onListItemClick(position) }
     }
 
 
-    override fun onListItemClick( parent: ListView?,
-        v: View?, position: Int, id: Long) {
+    fun onListItemClick( position: Int ) {
         // position is in the list!
         // first get the name of the person clicked
         /*val name = Friends().getAll()[position].name
