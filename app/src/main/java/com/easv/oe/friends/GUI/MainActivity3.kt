@@ -55,8 +55,10 @@ class MainActivity3 : ListActivity() {
             val nameView = resView.findViewById<TextView>(R.id.tvNameExt)
             val phoneView = resView.findViewById<TextView>(R.id.tvPhoneExt)
             val favoriteView = resView.findViewById<ImageView>(R.id.imgFavoriteExt)
+            val addressView = resView.findViewById<TextView>(R.id.tvAddressExt)
             nameView.text = f.name
             phoneView.text = f.phone
+            addressView.text = f.address
 
             favoriteView.setImageResource(if (f.isFavorite) R.drawable.ok else R.drawable.notok)
             return resView
